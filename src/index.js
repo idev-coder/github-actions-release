@@ -18,7 +18,7 @@ function publish(config) {
         github.rest.repos.createRelease({
             owner: config.owner,
             repo: config.repo,
-            configtag_name: config.tag,
+            tag_name: config.tag,
             name: config.name,
             body: bodyFileContent || config.body,
             draft: config.draft,
