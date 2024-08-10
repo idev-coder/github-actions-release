@@ -24,8 +24,8 @@ jobs:
         uses: ./
         with:
           github_token: ${{secrets.GIT_AUTH_TOKEN}}
-          tag: ${{ github.ref }}
-          name: Release ${{ github.ref }}
+          tag: v0.0.0
+          name: Release v0.0.0
           body: |
             Changes in this Release
             - First Change
