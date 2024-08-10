@@ -72,7 +72,6 @@ function main(args) {
             commitish: options.commitish,
             owner: options.owner,
             repo: options.repo ? options.repo : `https://git:${options.github_token}@github.com/${context.repo.owner}/${context.repo.repo}.git`,
-            silent: !!options.silent,
             user: user ? user : {
                 name: `${context.repo.owner}`,
                 email: `${context.repo.owner}@users.noreply.github.com`
