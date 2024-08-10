@@ -36,8 +36,8 @@ function main(args) {
     return Promise.resolve().then(() => {
         const options = {
             github_token: core.getInput('github_token') || process.env.GITHUB_TOKEN,
-            tag_name: core.getInput('tag_name', { required: true }).replace('refs/tags/', ''),
-            release_name: core.getInput('release_name', { required: false }).replace('refs/tags/', ''),
+            tag: core.getInput('tag', { required: true }).replace('refs/tags/', ''),
+            name: core.getInput('name', { required: false }).replace('refs/tags/', ''),
             body: core.getInput('body', { required: false }),
             body_path: core.getInput('body_path', { required: false }),
             draft: 'true' === core.getInput('draft', { required: false }),
@@ -63,8 +63,8 @@ function main(args) {
 
         const config = {
             github_token: options.github_token,
-            tag_name: options.tag_name,
-            release_name: options.release_name,
+            tag: options.tag,
+            name: options.name,
             body: options.body,
             body_path: options.body_path,
             draft: options.draft,
