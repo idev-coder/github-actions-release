@@ -44,7 +44,7 @@ function main(args) {
             prerelease: 'true' === core.getInput('prerelease', { required: false }),
             commitish: core.getInput('commitish', { required: false }) || context.sha,
             owner: core.getInput('owner', { required: false }) || context.repo.owner,
-            repo: core.getInput('repo', { required: false }),
+            repo: core.getInput('repo', { required: false }) || context.repo.repo,
             user: core.getInput('user', { required: false }),
         }
 
@@ -71,7 +71,7 @@ function main(args) {
             prerelease: options.prerelease,
             commitish: options.commitish,
             owner: options.owner,
-            repo: options.repo ? options.repo : `https://git:${options.github_token}@github.com/${context.repo.owner}/${context.repo.repo}.git`,
+            repo: options.repo,
             user: user ? user : {
                 name: `${context.repo.owner}`,
                 email: `${context.repo.owner}@users.noreply.github.com`

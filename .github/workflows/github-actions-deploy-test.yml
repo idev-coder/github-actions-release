@@ -24,8 +24,14 @@ jobs:
         uses: ./
         with:
           github_token: ${{secrets.GIT_AUTH_TOKEN}}
-          tag: 'v1.0.0'
-          name: 'Release v1.0.0'
+          tag: ${{ github.ref }}
+          name: Release ${{ github.ref }}
+          body: |
+            Changes in this Release
+            - First Change
+            - Second Change
+          draft: false
+          prerelease: false
         env:
           GITHUB_TOKEN: ${{secrets.GIT_AUTH_TOKEN}}
   
